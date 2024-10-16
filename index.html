@@ -3,17 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Political Map</title>
+    <title>Electoral Map</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        #map-container {
+            position: relative;
+            width: 100%; /* Adjust as needed */
+            max-width: 800px; /* Optional max width */
+            margin: auto; /* Center the map */
+        }
+        .area {
+            position: absolute;
+            background-color: transparent; /* No background */
+            cursor: pointer; /* Pointer cursor on hover */
+        }
+    </style>
 </head>
 <body>
-    <h1>Color Your Political Map</h1>
+    <h1>Electoral Map</h1>
     <div id="map-container">
-<div id="map-container">
-    <svg>
-        <!-- Your actual SVG code goes here -->
-    </svg>
-</div>    </div>
+        <img src="anzpsmap.png" alt="Map" style="width: 100%;" />
+        <div class="area" id="area1" style="top: 20%; left: 10%; width: 30%; height: 20%;"></div>
+        <div class="area" id="area2" style="top: 20%; left: 50%; width: 30%; height: 20%;"></div>
+        <!-- Add more areas as needed -->
+    </div>
+
     <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('.area').forEach(area => {
+            area.addEventListener('click', function() {
+                // Change color on click
+                this.style.backgroundColor = prompt("Enter a color (name or hex code):", "#ff0000");
+            });
+        });
+    </script>
 </body>
 </html>
