@@ -1,11 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const paths = document.querySelectorAll('#map-container path'); // Adjust based on your SVG structure
-    paths.forEach(item => {
-        item.addEventListener('click', () => {
-            const color = prompt('Enter a color (name or hex):');
-            if (color) {
-                item.style.fill = color; // Change fill color
-            }
-        });
+document.querySelectorAll('.area').forEach(area => {
+    area.addEventListener('click', function() {
+        // Prompt user for a color
+        const newColor = prompt("Enter a color (name or hex code):", "#ff0000");
+        
+        // Change the background color of the area if a color was provided
+        if (newColor) {
+            this.style.backgroundColor = newColor;
+        }
     });
 });
